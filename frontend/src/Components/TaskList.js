@@ -13,6 +13,7 @@ function TaskList({ onEdit }) {
   }, []);
 
   const fetchTasks = async () => {
+    console.log("TOKEN ===>", localStorage.getItem("token"));
     try {
       const response = await api.get("/tasks");
       setTasks(response.data.filter(task => !task.completed));
