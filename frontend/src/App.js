@@ -11,7 +11,6 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 
-
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
 
@@ -19,7 +18,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
-  const [page, setPage] = useState("add"); // "add" | "tasks" | "completed"
+  const [page, setPage] = useState("add");
 
   const handleLoginSuccess = (token) => {
     localStorage.setItem("token", token);
@@ -29,7 +28,9 @@ function App() {
   if (!isLoggedIn) {
     return (
       <div style={{ padding: 50 }}>
-        <Title level={2} style={{ textAlign: "center" }}>Welcome</Title>
+        <Title level={2} style={{ textAlign: "center" }}>
+          Welcome
+        </Title>
 
         {showSignup ? (
           <>
@@ -59,7 +60,9 @@ function App() {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider theme="light" collapsible>
-        <div style={{ textAlign:"center", padding:"20px 0", fontWeight:"bold" }}>
+        <div
+          style={{ textAlign: "center", padding: "20px 0", fontWeight: "bold" }}
+        >
           Task Manager
         </div>
 
@@ -69,19 +72,33 @@ function App() {
           selectedKeys={[page]}
           onClick={(e) => setPage(e.key)}
           items={[
-            { key:"add", icon:<PlusCircleOutlined />, label:"Add Task" },
-            { key:"tasks", icon:<UnorderedListOutlined />, label:"Task List" },
-            { key:"completed", icon:<CheckCircleOutlined />, label:"Completed Tasks" },
+            { key: "add", icon: <PlusCircleOutlined />, label: "Add Task" },
+            {
+              key: "tasks",
+              icon: <UnorderedListOutlined />,
+              label: "Task List",
+            },
+            {
+              key: "completed",
+              icon: <CheckCircleOutlined />,
+              label: "Completed Tasks",
+            },
           ]}
         />
       </Sider>
 
       <Layout>
-        <Header style={{ background:"#fff", paddingLeft:20 }}>
-          <Title level={3}>{page === "add" ? "Add New Task" : page === "tasks" ? "Task List" : "Completed Tasks"}</Title>
+        <Header style={{ background: "#fff", paddingLeft: 20 }}>
+          <Title level={3}>
+            {page === "add"
+              ? "Add New Task"
+              : page === "tasks"
+              ? "Task List"
+              : "Completed Tasks"}
+          </Title>
         </Header>
 
-        <Content style={{ padding:20 }}>
+        <Content style={{ padding: 20 }}>
           {page === "add" && <TaskForm />}
           {page === "tasks" && <TaskList />}
           {page === "completed" && <CompletedTasks />}

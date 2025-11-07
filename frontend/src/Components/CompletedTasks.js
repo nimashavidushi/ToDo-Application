@@ -12,7 +12,7 @@ function CompletedTasks() {
   const fetchCompletedTasks = async () => {
     try {
       const response = await api.get("/tasks");
-      setTasks(response.data.filter(task => task.completed));
+      setTasks(response.data.filter((task) => task.completed));
     } catch (error) {
       message.error("Failed to load completed tasks");
       console.error(error);

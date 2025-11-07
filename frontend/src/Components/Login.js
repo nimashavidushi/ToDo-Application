@@ -16,9 +16,9 @@ function Login({ onLoginSuccess }) {
       });
 
       const token = res.data.token;
-      localStorage.setItem("token", token);  // <-- ADD THIS
+      localStorage.setItem("token", token);
       onLoginSuccess(token);
-      
+
       message.success("Login successful");
     } catch (error) {
       message.error("Invalid credentials");
@@ -27,7 +27,9 @@ function Login({ onLoginSuccess }) {
 
   return (
     <Card style={{ width: 350, margin: "auto" }}>
-      <Title level={4} style={{ textAlign: "center" }}>Login</Title>
+      <Title level={4} style={{ textAlign: "center" }}>
+        Login
+      </Title>
 
       <Input
         placeholder="Username"

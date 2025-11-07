@@ -24,7 +24,9 @@ function Signup({ onSignupSuccess }) {
 
   return (
     <Card style={{ width: 350, margin: "auto" }}>
-      <Title level={4} style={{ textAlign: "center" }}>Signup</Title>
+      <Title level={4} style={{ textAlign: "center" }}>
+        Signup
+      </Title>
 
       <Input
         placeholder="Username"

@@ -21,7 +21,10 @@ function TaskForm({ editTask, onTaskSaved, clearEditTask, onViewCompleted }) {
     setLoading(true);
     try {
       if (editTask) {
-        await api.put(`/tasks/${editTask.id}`, { ...values, completed: editTask.completed });
+        await api.put(`/tasks/${editTask.id}`, {
+          ...values,
+          completed: editTask.completed,
+        });
         message.success("Task updated successfully!");
         clearEditTask();
       } else {
@@ -40,31 +43,31 @@ function TaskForm({ editTask, onTaskSaved, clearEditTask, onViewCompleted }) {
 
   return (
     <div>
-    <Card title={editTask ? "Edit Task" : "Add New Task"} bordered={false} style={{ borderRadius: 10, boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}>
-      <Form
-        form={form}
-        layout="vertical"
-        onFinish={onFinish}
+      <Card
+        title={editTask ? "Edit Task" : "Add New Task"}
+        bordered={false}
+        style={{ borderRadius: 10, boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
       >
-        <Form.Item
-          name="title"
-          rules={[{ required: true, message: "Please enter a task title!" }]}
-        >
-          <Input placeholder="Task title" autoFocus />
-        </Form.Item>
+        <Form form={form} layout="vertical" onFinish={onFinish}>
+          <Form.Item
+            name="title"
+            rules={[{ required: true, message: "Please enter a task title!" }]}
+          >
+            <Input placeholder="Task title" autoFocus />
+          </Form.Item>
 
-        <Form.Item name="description">
-          <Input.TextArea rows={4} placeholder="Description" />
-        </Form.Item>
+          <Form.Item name="description">
+            <Input.TextArea rows={4} placeholder="Description" />
+          </Form.Item>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit" block loading={loading}>
-            {editTask ? "Update Task" : "Add Task"}
-          </Button>
-        </Form.Item>
-      </Form>
-    </Card>
-    <Button
+          <Form.Item>
+            <Button type="primary" htmlType="submit" block loading={loading}>
+              {editTask ? "Update Task" : "Add Task"}
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
+      <Button
         type="default"
         block
         style={{
@@ -77,7 +80,6 @@ function TaskForm({ editTask, onTaskSaved, clearEditTask, onViewCompleted }) {
         View Completed Tasks
       </Button>
     </div>
-    
   );
 }
 

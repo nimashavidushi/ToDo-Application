@@ -4,7 +4,6 @@ const api = axios.create({
   baseURL: "http://localhost:8080/api",
 });
 
-// attach jwt to every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   console.log("INTERCEPTOR TOKEN ===>", token);
