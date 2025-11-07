@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, message } from "antd";
 import api from "../api";
+import "./CompletedTasks.css";
 
 function CompletedTasks() {
   const [tasks, setTasks] = useState([]);
@@ -20,19 +21,11 @@ function CompletedTasks() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="completed-container">
       <h2>Completed Tasks</h2>
-      <ul
-        style={{
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "20px",
-        }}
-      >
+      <ul className="completed-list">
         {tasks.map((task) => (
-          <li key={task.id} style={{ width: "80%", maxWidth: "900px" }}>
+          <li key={task.id} className="completed-item">
             <Card title={task.title}>
               <p>{task.description}</p>
             </Card>

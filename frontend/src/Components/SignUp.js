@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input, Card, Typography, message } from "antd";
 import axios from "axios";
+import "./SignUp.css";
 
 const { Title } = Typography;
 
@@ -23,22 +24,20 @@ function Signup({ onSignupSuccess }) {
   };
 
   return (
-    <Card style={{ width: 350, margin: "auto" }}>
-      <Title level={4} style={{ textAlign: "center" }}>
-        Signup
-      </Title>
+    <Card className="signup-card">
+      <Title className="signup-title">Signup</Title>
 
       <Input
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        style={{ marginBottom: 15 }}
+        className="signup-input-styles"
       />
       <Input.Password
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        style={{ marginBottom: 15 }}
+        className="signup-input-styles"
       />
 
       <Button type="primary" block onClick={handleSignup}>

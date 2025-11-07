@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Card, message } from "antd";
 import api from "../api";
+import "./TaskForm.css";
 
 function TaskForm({ editTask, onTaskSaved, clearEditTask, onViewCompleted }) {
   const [form] = Form.useForm();
@@ -46,7 +47,7 @@ function TaskForm({ editTask, onTaskSaved, clearEditTask, onViewCompleted }) {
       <Card
         title={editTask ? "Edit Task" : "Add New Task"}
         bordered={false}
-        style={{ borderRadius: 10, boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
+        className="form-card"
       >
         <Form form={form} layout="vertical" onFinish={onFinish}>
           <Form.Item
@@ -70,11 +71,7 @@ function TaskForm({ editTask, onTaskSaved, clearEditTask, onViewCompleted }) {
       <Button
         type="default"
         block
-        style={{
-          marginTop: 15,
-          borderRadius: 8,
-          boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
-        }}
+        className="form-button"
         onClick={onViewCompleted}
       >
         View Completed Tasks

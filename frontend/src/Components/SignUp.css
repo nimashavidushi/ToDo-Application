@@ -1,0 +1,13 @@
+.signup-card {
+  width: 350px;
+  margin: auto;
+}
+
+.signup-title {
+  text-align: center;
+  /* font-size: 8px; */
+}
+
+.signup-input-styles {
+  margin-bottom: 15px;
+}

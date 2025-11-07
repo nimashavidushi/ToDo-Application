@@ -1,0 +1,19 @@
+.list-title {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.list-card {
+  background-color: hsla(0, 1%, 71%, 0.89);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.paragraph {
+  margin-bottom: 0px;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}

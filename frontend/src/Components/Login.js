@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input, Card, Typography, message } from "antd";
 import axios from "axios";
+import "./Login.css";
 
 const { Title } = Typography;
 
@@ -26,8 +27,8 @@ function Login({ onLoginSuccess }) {
   };
 
   return (
-    <Card style={{ width: 350, margin: "auto" }}>
-      <Title level={4} style={{ textAlign: "center" }}>
+    <Card className="Card-style">
+      <Title level={4} className="Title-Style ">
         Login
       </Title>
 
@@ -35,13 +36,13 @@ function Login({ onLoginSuccess }) {
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        style={{ marginBottom: 15 }}
+        className="Input"
       />
       <Input.Password
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        style={{ marginBottom: 15 }}
+        className="Input"
       />
 
       <Button type="primary" block onClick={handleLogin}>
